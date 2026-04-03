@@ -1,0 +1,51 @@
+{
+  "name": "nextjs-boilerplate-simple",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.0",
+    "@tanstack/react-query": "^5.62.10",
+    "axios": "^1.14.0",
+    "leaflet": "^1.9.4",
+    "maplibre-gl": "^5.21.1",
+    "next": "14.2.3",
+    "oidc-client-ts": "^3.2.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-oidc-context": "^3.3.0"
+  },
+  "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.62.9",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "15.1.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-tailwindcss": "^3.17.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "postcss": "^8",
+    "prettier": "^3.3.1",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+  }
+}
