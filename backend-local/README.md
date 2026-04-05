@@ -25,7 +25,7 @@ Data is saved in the `Devices` DynamoDB table.
 
 ---
 
-POST /set_gps
+### `POST /set_gps`
 Updates a device’s last known GPS coordinates.
 
 Payload:
@@ -37,11 +37,11 @@ json
 }
 
 
-GET /get_gps?phoneNumber=...
+### `GET /get_gps?phoneNumber=...`
 Returns the last known GPS coordinates for a device
 
 
-POST /gps
+### `POST /gps`
 Triggers a push notification to the device via FCM v1 API.
 
 The notification instructs the device to send back its GPS location
