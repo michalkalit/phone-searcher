@@ -8,6 +8,7 @@ import { Box } from "@mui/material";
 
 function App() {
   const [phone, setPhone] = useState<string | null>(null);
+  const location = useDeviceLocation(phone);
 
   if (!phone) {
     return (
@@ -17,24 +18,17 @@ function App() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backdropFilter: "blur(6px)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
   }}>
         <LoginForm onLoginSuccess={setPhone} />
       </Box>
     );
   }
 
-  const { data: location, isLoading, error } = useDeviceLocation(phone);
 
-  if (isLoading) {
-    return <div>Loading location…</div>;
-  }
 
-  if (error) {
-    return <div>Failed to load location.</div>;
-  }
 
   if (!location) {
     return <div>Waiting for GPS…</div>;
