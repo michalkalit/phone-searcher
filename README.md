@@ -19,57 +19,7 @@ https://github.com/user-attachments/assets/bf31b22f-1dc7-48a4-9800-3d395838b4d6
 
 **High‑Level Architecture**
 
-          ANDROID DEVICE
-   ┌──────────────────────────┐
-   │  FCM Token + Phone       │
-   │  Receives "get-gps"      │
-   │  Sends GPS → Backend     │
-   └──────────────┬──────────┘
-                  │
-                  ▼
-        API GATEWAY (REST)
-   ┌──────────────────────────┐
-   │ /register                │
-   │ /gps (send push)         │
-   │ /location (update/get)   │
-   └──────────────┬──────────┘
-                  │
-                  ▼
-              LAMBDAS
-   ┌──────────────────────────┐
-   │ registerDevice           │
-   │ requestGps (FCM)         │
-   │ updateLocation           │
-   │ getLocation              │
-   └──────────────┬──────────┘
-                  │
-                  ▼
-              DYNAMODB
-   ┌──────────────────────────┐
-   │ phoneNumber (PK)         │
-   │ token                    │
-   │ latitude / longitude     │
-   │ connectionId             │
-   └──────────────┬──────────┘
-                  │ Stream
-                  ▼
-       websocketBroadcast Lambda
-   ┌──────────────────────────┐
-   │ Sends updates to client  │
-   └──────────────┬──────────┘
-                  │
-                  ▼
-        API GATEWAY (WEBSOCKET)
-   ┌──────────────────────────┐
-   │ Maintains connections    │
-   └──────────────┬──────────┘
-                  │
-                  ▼
-            REACT WEB CLIENT
-   ┌──────────────────────────┐
-   │ Receives GPS live        │
-   │ Updates map instantly    │
-   └──────────────────────────┘
+<img width="313" height="867" alt="image" src="https://github.com/user-attachments/assets/93e6a4e0-8993-475b-8df9-735abcea23d3" />
 
 
 ---
