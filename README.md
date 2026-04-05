@@ -45,8 +45,11 @@ The goal of this project is to demonstrate architecture, event flow, and cloud i
 **Repository Structure**
 
 /android        - Minimal Android client
+
 /client         - Web UI for live tracking
+
 /backend-aws    - Lambda functions + infra
+
 /backend-local  - Local Flask server (deprecated)
 
 Each folder contains its own README with details.
