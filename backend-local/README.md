@@ -23,7 +23,6 @@ Registers a device by storing:
 
 Data is saved in the `Devices` DynamoDB table.
 
----
 
 ### `POST /set_gps`
 Updates a device’s last known GPS coordinates.
