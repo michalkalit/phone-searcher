@@ -9,6 +9,12 @@ It includes:
 
 The goal of this project is to demonstrate architecture, event flow, and cloud integration — not to serve as a production mobile or web application.
 
+
+
+https://github.com/user-attachments/assets/bf31b22f-1dc7-48a4-9800-3d395838b4d6
+
+
+
 ---
 
 **High‑Level Architecture**
