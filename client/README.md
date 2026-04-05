@@ -14,8 +14,11 @@ A lightweight web client that displays real‑time device location updates pushe
 
 **Code Structure**
 src/app
+
     components/
+    
         Spinner/        → Custom SVG/CSS loading animation
+        
     hooks/
 
 
