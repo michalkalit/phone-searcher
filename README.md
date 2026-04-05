@@ -13,6 +13,59 @@ The goal of this project is to demonstrate architecture, event flow, and cloud i
 
 **High‑Level Architecture**
 
+          ANDROID DEVICE
+   ┌──────────────────────────┐
+   │  FCM Token + Phone       │
+   │  Receives "get-gps"      │
+   │  Sends GPS → Backend     │
+   └──────────────┬──────────┘
+                  │
+                  ▼
+        API GATEWAY (REST)
+   ┌──────────────────────────┐
+   │ /register                │
+   │ /gps (send push)         │
+   │ /location (update/get)   │
+   └──────────────┬──────────┘
+                  │
+                  ▼
+              LAMBDAS
+   ┌──────────────────────────┐
+   │ registerDevice           │
+   │ requestGps (FCM)         │
+   │ updateLocation           │
+   │ getLocation              │
+   └──────────────┬──────────┘
+                  │
+                  ▼
+              DYNAMODB
+   ┌──────────────────────────┐
+   │ phoneNumber (PK)         │
+   │ token                    │
+   │ latitude / longitude     │
+   │ connectionId             │
+   └──────────────┬──────────┘
+                  │ Stream
+                  ▼
+       websocketBroadcast Lambda
+   ┌──────────────────────────┐
+   │ Sends updates to client  │
+   └──────────────┬──────────┘
+                  │
+                  ▼
+        API GATEWAY (WEBSOCKET)
+   ┌──────────────────────────┐
+   │ Maintains connections    │
+   └──────────────┬──────────┘
+                  │
+                  ▼
+            REACT WEB CLIENT
+   ┌──────────────────────────┐
+   │ Receives GPS live        │
+   │ Updates map instantly    │
+   └──────────────────────────┘
+
+
 ---
 
 **Flow Summary**
