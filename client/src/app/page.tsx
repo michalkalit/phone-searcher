@@ -5,6 +5,7 @@ import MapView from "./components/MapView";
 import { useDeviceLocation } from "./hooks/useDeviceLocation";
 import 'leaflet/dist/leaflet.css';
 import { Box } from "@mui/material";
+import Spinner from "../app/components/Spinner/spinner";
 
 function App() {
   const [phone, setPhone] = useState<string | null>(null);
@@ -28,11 +29,14 @@ function App() {
   }
 
 
+if (!location) {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 40 }}>
+      <Spinner />
+    </div>
+  );
+}
 
-
-  if (!location) {
-    return <div>Waiting for GPS…</div>;
-  }
 
   return <MapView location={location} />;
 }
